@@ -4,10 +4,10 @@ import {
   useEffect,
   useRef,
   useState,
-  ReactNode,
   TouchEvent,
   WheelEvent,
 } from 'react';
+import type { ReactNode } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
