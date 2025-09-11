@@ -6,8 +6,11 @@ import { Canvas } from '@react-three/fiber';
 import { ShaderPlane } from '@/components/ui/background-paper-shaders';
 
 export default function Home() {
-	return (
+		return (
 		<div className="min-h-screen relative">
+			{/* Home Section */}
+			<div id="home"></div>
+
 			{/* Animated Background */}
 			<div className="fixed inset-0 -z-10 opacity-75">
 				<Canvas camera={{ position: [0, 0, 3] }}>
@@ -49,6 +52,9 @@ export default function Home() {
 				</Canvas>
 			</div>
 			
+			{/* Couple Section */}
+			<div id="couple"></div>
+
 			<ScrollExpandMedia
 				mediaType="video"
 				mediaSrc="https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwjrOczM5uO6qjlMnepHs2rXoJPgubf9tCyZSh"
@@ -103,7 +109,10 @@ export default function Home() {
 					<p className='text-lg mb-8'>
 						mengundang Bapak/Ibu untuk menghadiri pernikahan kami, pada :
 					</p>
-					
+
+					{/* Details Section */}
+					<div id="details"></div>
+
 					<div className='bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8'>
 						<div className='text-center mb-6'>
 							<h1 className='text-6xl font-bold mb-2' style={{color: '#452912'}}>17</h1>
@@ -153,8 +162,26 @@ export default function Home() {
 					</div>
 				</div>
 			</ScrollExpandMedia>
-			
+
+			{/* Gallery Section */}
+			<div id="gallery"></div>
+
 			<StickyScrollGallery />
+
+			{/* RSVP Section */}
+			<div id="rsvp" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-secondary/20">
+				<div className="text-center p-8">
+					<h2 className="text-4xl font-bold mb-4 text-primary">RSVP</h2>
+					<p className="text-lg mb-6 text-muted-foreground">
+						Konfirmasi kehadiran Anda di acara spesial kami
+					</p>
+					<div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 max-w-md mx-auto">
+						<p className="text-sm text-muted-foreground">
+							Fitur RSVP akan segera hadir!
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }
