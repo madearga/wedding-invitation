@@ -25,3 +25,28 @@ export const locationConfig = {
   // Google Maps embed code to display map on website
   maps_embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.282384692975!2d112.73877521477393!3d-7.319573794671846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb91d2ac47ad%3A0x4b1e9e4a4b1e9e4a!2sGereja%20Katedral%20Hati%20Kudus%20Yesus!5e0!3m2!1sid!2sid!4v1635746820004!5m2!1sid!2sid"
 };
+
+// Digital gift and bank account settings
+export const giftConfig = {
+  // Charity message
+  charityMessage: "Tanpa mengurangi rasa hormat, kehadiran serta doa restu Bapak/Ibu/Saudara/i adalah karunia terbesar bagi keluarga kami. Apabila Bapak/Ibu berkenan ingin berbagi kebahagiaan dalam bentuk tanda kasih, kami siapkan fitur amplop digital berikut semata demi kemudahan. Sebagian hadiah yang kami terima juga akan kami salurkan untuk kebermanfaatan bersama. Terima kasih atas cinta dan doanya.",
+  // Payment link for digital gifts
+  paymentLink: "https://app.midtrans.com/payment-links/1757628481403",
+  // List of bank accounts for digital envelope/gifts
+  banks: [
+    {
+      // Bank name
+      bank: "Bank Central Asia",
+      // Account number
+      accountNumber: "1234567890",
+      // Account holder name (all uppercase)
+      accountName: "ANDREA MARIA AGNIWIJAYA",
+    },
+    {
+      bank: "Bank Mandiri",
+      accountNumber: "0987654321",
+      accountName: "I MADE ARGA SWARSA",
+    }
+    // You can add more banks with the same format
+  ]
+};

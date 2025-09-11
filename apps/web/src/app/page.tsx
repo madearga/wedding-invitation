@@ -5,6 +5,7 @@ import StickyScrollGallery from '@/components/ui/sticky-scroll';
 import Location from '@/components/ui/location';
 import AnimatedNumberCountdown from '@/components/ui/countdown-number';
 import Wishes from '@/components/ui/wishes';
+import Gifts from '@/components/ui/gifts';
 import { Canvas } from '@react-three/fiber';
 import { ShaderPlane } from '@/components/ui/background-paper-shaders';
 
@@ -194,6 +195,9 @@ export default function Home() {
 
 			{/* Location Section */}
 			<Location />
+
+			{/* Gifts Section */}
+			<Gifts />
 
 			{/* Wishes Section */}
 			<Wishes />
