@@ -132,7 +132,6 @@ const Component = forwardRef<HTMLElement>((_, ref) => {
           </div>
         </section>
       </main>
-    </ReactLenis>
   );
 });
 
