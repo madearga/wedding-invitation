@@ -12,8 +12,8 @@ export default function Home() {
 			<div id="home"></div>
 
 			{/* Animated Background */}
-			<div className="fixed inset-0 -z-10 opacity-75">
-				<Canvas camera={{ position: [0, 0, 3] }}>
+			<div className="fixed inset-0 z-0 opacity-75 pointer-events-none">
+				<Canvas camera={{ position: [0, 0, 5] }} style={{ width: '100%', height: '100%' }}>
 					<ShaderPlane 
 						position={[0, 0, 0]} 
 						color1="#452912" 
