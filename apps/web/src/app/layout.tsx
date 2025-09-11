@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bellefair } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
-import Header from "@/components/header";
+import AudioPlayer from "@/components/audio-player";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -36,10 +36,8 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} ${bellefair.variable} antialiased font-bellefair`}
 			>
 				<Providers>
-					<div className="grid grid-rows-[auto_1fr] h-svh">
-						<Header />
-						{children}
-					</div>
+					{children}
+					<AudioPlayer />
 				</Providers>
 			</body>
 		</html>
