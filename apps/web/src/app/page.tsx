@@ -2,6 +2,9 @@
 
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
 import StickyScrollGallery from '@/components/ui/sticky-scroll';
+import Location from '@/components/ui/location';
+import AnimatedNumberCountdown from '@/components/ui/countdown-number';
+import Wishes from '@/components/ui/wishes';
 import { Canvas } from '@react-three/fiber';
 import { ShaderPlane } from '@/components/ui/background-paper-shaders';
 
@@ -85,7 +88,7 @@ export default function Home() {
 						/>
 					</div>
 					<p className='text-lg mb-6'>
-						Putri dari Bapak Andreas Anang Wijaya
+						Putri dari Bapak Andreas Anang Wijaya & Ibu Ike
 					</p>
 					
 					<div className='text-6xl font-bold mb-6'>
@@ -103,7 +106,7 @@ export default function Home() {
 						/>
 					</div>
 					<p className='text-lg mb-8'>
-						Putra dari Bapak I Wayan Sarmadi
+						Putra dari Bapak I Wayan Sarmadi & Ibu Indah Yana
 					</p>
 					
 					<p className='text-lg mb-8'>
@@ -163,25 +166,37 @@ export default function Home() {
 				</div>
 			</ScrollExpandMedia>
 
+			{/* Countdown Section */}
+			<div className="min-h-screen flex items-center justify-center relative">
+				<div className="text-center p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto w-full">
+					<div className="mb-6 sm:mb-8">
+						<h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4" style={{ color: '#452912' }}>
+							Menghitung Hari
+						</h2>
+						<p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-2">
+							Waktu yang tersisa hingga hari bahagia kami
+						</p>
+					</div>
+					
+					<div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg">
+						<AnimatedNumberCountdown
+							endDate={new Date("2025-10-17T09:00:00")}
+							className="text-center"
+						/>
+					</div>
+				</div>
+			</div>
+
 			{/* Gallery Section */}
 			<div id="gallery"></div>
 
 			<StickyScrollGallery />
 
-			{/* RSVP Section */}
-			<div id="rsvp" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-secondary/20">
-				<div className="text-center p-8">
-					<h2 className="text-4xl font-bold mb-4 text-primary">RSVP</h2>
-					<p className="text-lg mb-6 text-muted-foreground">
-						Konfirmasi kehadiran Anda di acara spesial kami
-					</p>
-					<div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 max-w-md mx-auto">
-						<p className="text-sm text-muted-foreground">
-							Fitur RSVP akan segera hadir!
-						</p>
-					</div>
-				</div>
-			</div>
+			{/* Location Section */}
+			<Location />
+
+			{/* Wishes Section */}
+			<Wishes />
 		</div>
 	);
 }

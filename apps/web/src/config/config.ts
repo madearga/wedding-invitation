@@ -9,3 +9,19 @@ export const audioConfig = {
   // Whether music repeats continuously
   loop: true
 };
+
+// Wedding location and venue settings
+export const locationConfig = {
+  // Wedding date (format: YYYY-MM-DD)
+  date: "2025-10-17",
+  // Event time
+  time: "09:00 WIB",
+  // Venue/building name
+  location: "Gereja Hati Kudus Yesus Katedral Surabaya",
+  // Full address of the wedding venue
+  address: "Jl. Polisi Istimewa No.15, Keputran, Kec. Tegalsari, Surabaya, Jawa Timur 60265",
+  // Google Maps link for location (clickable link for directions)
+  maps_url: "https://maps.app.goo.gl/byBAm8cSZjw873PM6",
+  // Google Maps embed code to display map on website
+  maps_embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.282384692975!2d112.73877521477393!3d-7.319573794671846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb91d2ac47ad%3A0x4b1e9e4a4b1e9e4a!2sGereja%20Katedral%20Hati%20Kudus%20Yesus!5e0!3m2!1sid!2sid!4v1635746820004!5m2!1sid!2sid"
+};

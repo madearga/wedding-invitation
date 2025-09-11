@@ -63,7 +63,9 @@ const ScrollExpandMedia = ({
         if (newProgress >= 1) {
           setMediaFullyExpanded(true);
           setShowContent(true);
-        } else if (newProgress < 0.75) {
+        } else if (newProgress >= 0.4) {
+          setShowContent(true);
+        } else if (newProgress < 0.3) {
           setShowContent(false);
         }
       }
@@ -96,7 +98,9 @@ const ScrollExpandMedia = ({
         if (newProgress >= 1) {
           setMediaFullyExpanded(true);
           setShowContent(true);
-        } else if (newProgress < 0.75) {
+        } else if (newProgress >= 0.4) {
+          setShowContent(true);
+        } else if (newProgress < 0.3) {
           setShowContent(false);
         }
 
@@ -348,9 +352,15 @@ const ScrollExpandMedia = ({
 
             <motion.section
               className='flex flex-col w-full px-8 py-10 md:px-16 lg:py-20'
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showContent ? 1 : 0 }}
-              transition={{ duration: 0.7 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: scrollProgress >= 0.3 ? Math.min((scrollProgress - 0.3) / 0.4, 1) : 0,
+                y: scrollProgress >= 0.3 ? 20 - Math.min((scrollProgress - 0.3) / 0.4, 1) * 20 : 20
+              }}
+              transition={{ 
+                duration: 0.2,
+                ease: "easeOut"
+              }}
             >
               {children}
             </motion.section>

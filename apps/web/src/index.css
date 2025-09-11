@@ -134,3 +134,84 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom scrollbar styles */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-rose-300::-webkit-scrollbar-thumb {
+  background-color: #fda4af;
+  border-radius: 9999px;
+}
+
+.scrollbar-track-transparent::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fda4af;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f87171;
+}
+
+/* Mobile-specific enhancements */
+@media (max-width: 768px) {
+  /* Improve touch scrolling on mobile */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Better tap highlighting */
+  button, a, [role="button"] {
+    -webkit-tap-highlight-color: rgba(69, 41, 18, 0.1);
+  }
+  
+  /* Smoother scrolling on mobile */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Prevent zoom on input focus */
+  input[type="text"], 
+  input[type="email"], 
+  textarea, 
+  select {
+    font-size: 16px;
+  }
+}
+
+/* Safe area handling for modern mobile devices */
+@supports (padding: env(safe-area-inset-top)) {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Touch manipulation utility */
+.touch-manipulation {
+  touch-action: manipulation;
+}
