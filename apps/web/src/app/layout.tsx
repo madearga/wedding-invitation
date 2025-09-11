@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bellefair } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
-import AudioPlayer from "@/components/audio-player";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -37,7 +36,6 @@ export default function RootLayout({
 			>
 				<Providers>
 					{children}
-					<AudioPlayer />
 				</Providers>
 			</body>
 		</html>
