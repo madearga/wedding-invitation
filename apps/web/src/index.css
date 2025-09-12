@@ -223,6 +223,8 @@ body {
 
 /* GradientButton styles */
 .rotatingGradient {
+  position: relative;
+  overflow: hidden; /* clip overlay to radius */
   background: conic-gradient(
     from var(--r, 0deg),
     #ff6b6b 0deg,
@@ -233,6 +235,27 @@ body {
     #ff6b6b 360deg
   );
   animation: rotateGradient 3s linear infinite;
+}
+
+/* Base pseudo-element for hover/active/focus overlay effects */
+.rotatingGradient::after {
+  content: ''; /* Required for pseudo-element to render */
+  position: absolute; /* Position overlay on top of element */
+  inset: 0; /* Cover entire element area */
+  background: rgba(255, 255, 255, 0.1); /* Subtle white overlay */
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.2s ease, transform 0.2s ease; /* Smooth transitions */
+  pointer-events: none; /* Don't interfere with element interactions */
+  border-radius: inherit; /* Match parent's border radius */
+}
+
+/* Register custom property for smooth animation interpolation */
+@supports (background: conic-gradient(from 0deg, red, blue)) {
+  @property --r {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
 }
 
 @keyframes rotateGradient {
@@ -250,4 +273,9 @@ body {
 
 .rotatingGradient:active::after {
   opacity: 0.6;
+}
+
+/* Keyboard accessibility - focus-visible mirrors hover behavior */
+.rotatingGradient:focus-visible::after {
+  opacity: 0.8;
 }
