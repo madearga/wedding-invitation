@@ -1,3 +1,23 @@
+// Main wedding data for the invitation
+export const weddingData = {
+  // Couple information
+  title: "Arga & Agni Wedding Invitation",
+  description: "Join us in celebrating the wedding of Arga & Agni. Save the date: October 17, 2025 at Gereja Hati Kudus Yesus Katedral Surabaya",
+  groomName: "I Made Arga Swarsa",
+  brideName: "Andrea Maria Agniwijaya",
+  groomParents: "Bapak I Wayan Sarmadi & Ibu Indah Yana",
+  brideParents: "Bapak Andreas Anang Wijaya & Ibu Yovita Sandra Ekawati",
+  // Wedding date and venue
+  weddingDate: "2025-10-17T09:00:00",
+  weddingDateFormatted: "17 Oktober 2025",
+  venue: "Gereja Hati Kudus Yesus Katedral Surabaya",
+  address: "Jl. Polisi Istimewa No.15, Keputran, Kec. Tegalsari, Surabaya, Jawa Timur 60265",
+  // Open Graph image
+  ogImage: "https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwS35RaQ9KszXGCKoardWxuyJFchTp9RtekPAB",
+  // Favicon
+  favicon: "/favicon.ico"
+};
+
 // Background music settings
 export const audioConfig = {
   // Music file (choose one or replace with your own file)
@@ -38,13 +58,13 @@ export const giftConfig = {
       // Bank name
       bank: "Bank Central Asia",
       // Account number
-      accountNumber: "1234567890",
+      accountNumber: "1912343281",
       // Account holder name (all uppercase)
       accountName: "ANDREA MARIA AGNIWIJAYA",
     },
     {
       bank: "Bank Mandiri",
-      accountNumber: "0987654321",
+      accountNumber: "1400018288549",
       accountName: "I MADE ARGA SWARSA",
     }
     // You can add more banks with the same format

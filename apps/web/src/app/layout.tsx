@@ -4,6 +4,7 @@ import "../index.css";
 import Providers from "@/components/providers";
 import AudioPlayer from "@/components/audio-player";
 import "@/lib/performance";
+import { weddingData } from "@/config/config";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -28,17 +29,17 @@ const bellefair = Bellefair({
 });
 
 export const metadata: Metadata = {
-	title: "Arga & Agni Wedding Invitation",
-	description: "Join us in celebrating the wedding of Arga & Agni. Save the date: October 17, 2025 at Gereja Hati Kudus Yesus Katedral Surabaya",
+	title: weddingData.title,
+	description: weddingData.description,
 	keywords: "wedding, invitation, Arga, Agni, marriage, celebration, Surabaya",
 	authors: [{ name: "Arga & Agni" }],
 	openGraph: {
-		title: "Arga & Agni Wedding Invitation",
+		title: weddingData.title,
 		description: "Join us in celebrating our special day",
 		type: "website",
 		images: [
 			{
-				url: "https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwS35RaQ9KszXGCKoardWxuyJFchTp9RtekPAB",
+				url: weddingData.ogImage,
 				width: 1200,
 				height: 630,
 				alt: "Arga & Agni Wedding"
