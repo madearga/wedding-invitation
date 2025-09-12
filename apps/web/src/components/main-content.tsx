@@ -89,7 +89,7 @@ export default function MainContent() {
             />
           </div>
           <p className='text-lg mb-6'>
-            Putri dari Bapak Andreas Anang Wijaya & Ibu Ike
+            Putri dari Bapak Andreas Anang Wijaya & Ibu Yovita Sandra Ekawati
           </p>
           
           <div className='text-6xl font-bold mb-6'>
@@ -122,7 +122,7 @@ export default function MainContent() {
               <h1 className='text-6xl font-bold mb-2' style={{color: '#452912'}}>17</h1>
               <h2 className='text-2xl font-semibold mb-2' style={{color: '#452912'}}>JUMAT</h2>
               <h2 className='text-2xl font-semibold mb-2' style={{color: '#452912'}}>OKTOBER</h2>
-              <h2 className='text-xl mb-2' style={{color: '#452912'}}>09.00 WIB</h2>
+              <h2 className='text-xl font-bold mb-2' style={{color: '#452912'}}>09.00 WIB</h2>
               <h2 className='text-2xl font-semibold' style={{color: '#452912'}}>2025</h2>
             </div>
             

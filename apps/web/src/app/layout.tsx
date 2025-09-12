@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Bellefair } from "next/font/google";
+import { Geist, Geist_Mono, Bellefair, Great_Vibes, Playfair_Display, Dancing_Script } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
 import AudioPlayer from "@/components/audio-player";
@@ -24,6 +24,30 @@ const bellefair = Bellefair({
 	variable: "--font-bellefair",
 	subsets: ["latin"],
 	weight: "400",
+	display: "swap",
+	preload: true,
+});
+
+const greatVibes = Great_Vibes({
+	variable: "--font-great-vibes",
+	subsets: ["latin"],
+	weight: "400",
+	display: "swap",
+	preload: true,
+});
+
+const playfairDisplay = Playfair_Display({
+	variable: "--font-playfair-display",
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	display: "swap",
+	preload: true,
+});
+
+const dancingScript = Dancing_Script({
+	variable: "--font-dancing-script",
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
 	display: "swap",
 	preload: true,
 });
@@ -89,6 +113,12 @@ export default function RootLayout({
 					href="https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwQ5VFIHN1hPlkexZ9IT2J3Bnbmd0DRazWMsAK"
 					as="image"
 				/>
+				<link
+					rel="preload"
+					href="/audio/QUOTE.mp3"
+					as="audio"
+					type="audio/mpeg"
+				/>
 				
 				{/* Preconnect to external domains */}
 				<link rel="preconnect" href="https://rvmyspork8.ufs.sh" />
@@ -116,7 +146,7 @@ export default function RootLayout({
 				<link rel="dns-prefetch" href="//unpkg.com" />
 			</head>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${bellefair.variable} antialiased font-bellefair`}
+				className={`${geistSans.variable} ${geistMono.variable} ${bellefair.variable} ${greatVibes.variable} ${playfairDisplay.variable} ${dancingScript.variable} antialiased font-bellefair`}
 			>
 				<Providers>
 					{children}

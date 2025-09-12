@@ -7,6 +7,9 @@
   --font-sans: "Inter", "Geist", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-bellefair: var(--font-bellefair), "Bellefair", serif;
+  --font-great-vibes: var(--font-great-vibes), "Great Vibes", cursive;
+  --font-playfair-display: var(--font-playfair-display), "Playfair Display", serif;
+  --font-dancing-script: var(--font-dancing-script), "Dancing Script", cursive;
 }
 
 html,
@@ -23,6 +26,7 @@ body {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  --color-text: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -57,6 +61,7 @@ body {
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
+  --color-text: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -214,4 +219,35 @@ body {
 /* Touch manipulation utility */
 .touch-manipulation {
   touch-action: manipulation;
+}
+
+/* GradientButton styles */
+.rotatingGradient {
+  background: conic-gradient(
+    from var(--r, 0deg),
+    #ff6b6b 0deg,
+    #4ecdc4 72deg,
+    #45b7d1 144deg,
+    #96ceb4 216deg,
+    #feca57 288deg,
+    #ff6b6b 360deg
+  );
+  animation: rotateGradient 3s linear infinite;
+}
+
+@keyframes rotateGradient {
+  0% {
+    --r: 0deg;
+  }
+  100% {
+    --r: 360deg;
+  }
+}
+
+.rotatingGradient:hover::after {
+  opacity: 0.8;
+}
+
+.rotatingGradient:active::after {
+  opacity: 0.6;
 }

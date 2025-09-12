@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { VolumeX, Volume2, Heart, Calendar, MapPin } from 'lucide-react';
+import { VolumeX, Volume2, Calendar, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import GradientButton from './button-1';
 
 interface WeddingHeroProps {
   onOpenInvitation: () => void;
@@ -37,48 +38,70 @@ const WeddingHero: React.FC<WeddingHeroProps> = ({
   useEffect(() => {
     setMounted(true);
     
-    // Create and setup audio
-    audioRef.current = new Audio('/audio/QUOTE.mp3');
-    audioRef.current.loop = true; // Quote will loop continuously
-    audioRef.current.volume = 0.7; // Slightly lower volume for quote
+    // Create and setup audio with better configuration
+    const setupAudio = () => {
+      if (audioRef.current) return;
+      
+      audioRef.current = new Audio('/audio/QUOTE.mp3');
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.7;
+      audioRef.current.preload = 'auto';
+      
+      // Add event listeners for debugging
+      audioRef.current.addEventListener('loadstart', () => console.log('Audio loading started'));
+      audioRef.current.addEventListener('canplay', () => console.log('Audio ready to play'));
+      audioRef.current.addEventListener('error', (e) => console.error('Audio error:', e));
+    };
+    
+    setupAudio();
     
     // Auto play video and audio when component mounts
     const playMedia = async () => {
       try {
-        // Try to play video
+        // Try to play video first
         if (videoRef.current) {
           await videoRef.current.play();
+          console.log('Video autoplay successful');
         }
         
         // Try to play audio quote
-        if (audioRef.current) {
+        if (audioRef.current && !isAudioMuted) {
           await audioRef.current.play();
+          console.log('Audio autoplay successful');
         }
       } catch (error) {
-        console.log('Autoplay failed, waiting for user interaction');
+        console.log('Autoplay failed, waiting for user interaction:', error);
         
-        // Add click event listener for first interaction
+        // Add multiple event listeners for better user interaction detection
         const handleFirstInteraction = async () => {
           try {
-            if (videoRef.current) {
+            if (videoRef.current && videoRef.current.paused) {
               await videoRef.current.play();
             }
-            if (audioRef.current && !isAudioMuted) {
+            if (audioRef.current && audioRef.current.paused && !isAudioMuted) {
               await audioRef.current.play();
+              console.log('Audio started after user interaction');
             }
+            // Remove all interaction listeners
             document.removeEventListener('click', handleFirstInteraction);
+            document.removeEventListener('touchstart', handleFirstInteraction);
+            document.removeEventListener('keydown', handleFirstInteraction);
           } catch (err) {
             console.error('Playback failed after interaction:', err);
           }
         };
         
-        document.addEventListener('click', handleFirstInteraction);
+        document.addEventListener('click', handleFirstInteraction, { once: true });
+        document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+        document.addEventListener('keydown', handleFirstInteraction, { once: true });
       }
     };
     
-    playMedia();
+    // Add small delay to ensure audio is properly loaded
+    const timeoutId = setTimeout(playMedia, 200);
     
     return () => {
+      clearTimeout(timeoutId);
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;
@@ -172,9 +195,7 @@ const WeddingHero: React.FC<WeddingHeroProps> = ({
             className="mb-8"
           >
             <div className="flex items-center justify-center mb-4">
-              <Heart className="w-6 h-6 text-rose-300 mr-2" />
-              <span className="text-white text-sm font-medium tracking-wider">WEDDING INVITATION</span>
-              <Heart className="w-6 h-6 text-rose-300 ml-2" />
+              <span className="text-white text-sm font-medium tracking-wider font-playfair-display">WEDDING INVITATION</span>
             </div>
           </motion.div>
 
@@ -185,11 +206,11 @@ const WeddingHero: React.FC<WeddingHeroProps> = ({
             transition={{ delay: 0.4 }}
             className="mb-8"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold tracking-tight font-bellefair mb-4 drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold tracking-tight font-great-vibes mb-4 drop-shadow-2xl">
               {heroTitle}
             </h1>
             <div className="w-24 h-0.5 bg-rose-300 mx-auto mb-4"></div>
-            <p className="text-white/90 text-xl italic drop-shadow-lg">
+            <p className="text-white/90 text-xl italic drop-shadow-lg font-dancing-script font-medium">
               {heroSubtitle}
             </p>
           </motion.div>
@@ -203,34 +224,38 @@ const WeddingHero: React.FC<WeddingHeroProps> = ({
           >
             <div className="flex items-center justify-center text-white/90">
               <Calendar className="w-5 h-5 mr-3" />
-              <span className="text-lg font-medium">{weddingDate}</span>
+              <span className="text-lg font-medium font-playfair-display">{weddingDate}</span>
             </div>
             <div className="flex items-center justify-center text-white/90">
               <MapPin className="w-5 h-5 mr-3" />
-              <span className="text-lg font-medium">{weddingVenue}</span>
+              <span className="text-lg font-medium font-playfair-display">{weddingVenue}</span>
             </div>
           </motion.div>
 
           {/* Open invitation button */}
-          <motion.button
+          <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8 }}
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.98 }}
-            onClick={onOpenInvitation}
-            className="group relative bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white px-10 py-5 rounded-full font-semibold text-xl shadow-2xl transition-all duration-300 backdrop-blur-sm"
           >
-            <span className="relative z-10">Buka Undangan</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </motion.button>
+            <GradientButton
+              onClick={onOpenInvitation}
+              width="280px"
+              height="60px"
+              className="font-semibold text-xl shadow-2xl font-playfair-display"
+            >
+              Buka Undangan
+            </GradientButton>
+          </motion.div>
 
           {/* Footer message */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            className="text-white/80 text-lg mt-8 leading-relaxed drop-shadow-lg"
+            className="text-white/80 text-lg mt-8 leading-relaxed drop-shadow-lg font-playfair-display italic"
           >
             {heroDescription}
           </motion.p>
