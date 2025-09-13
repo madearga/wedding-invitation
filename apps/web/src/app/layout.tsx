@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Bellefair, Great_Vibes, Playfair_Display, Dancing_Script } from "next/font/google";
+import { Geist, Geist_Mono, Bellefair, Great_Vibes, Playfair_Display, Dancing_Script, Crimson_Pro } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
 import AudioPlayer from "@/components/audio-player";
@@ -46,6 +46,14 @@ const playfairDisplay = Playfair_Display({
 
 const dancingScript = Dancing_Script({
 	variable: "--font-dancing-script",
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	display: "swap",
+	preload: true,
+});
+
+const crimsonPro = Crimson_Pro({
+	variable: "--font-crimson-pro",
 	subsets: ["latin"],
 	weight: ["400", "500", "600", "700"],
 	display: "swap",
@@ -113,12 +121,6 @@ export default function RootLayout({
 					href="https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwQ5VFIHN1hPlkexZ9IT2J3Bnbmd0DRazWMsAK"
 					as="image"
 				/>
-				<link
-					rel="preload"
-					href="/audio/QUOTE.mp3"
-					as="audio"
-					type="audio/mpeg"
-				/>
 				
 				{/* Preconnect to external domains */}
 				<link rel="preconnect" href="https://rvmyspork8.ufs.sh" />
@@ -146,7 +148,7 @@ export default function RootLayout({
 				<link rel="dns-prefetch" href="//unpkg.com" />
 			</head>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${bellefair.variable} ${greatVibes.variable} ${playfairDisplay.variable} ${dancingScript.variable} antialiased font-bellefair`}
+				className={`${geistSans.variable} ${geistMono.variable} ${bellefair.variable} ${greatVibes.variable} ${playfairDisplay.variable} ${dancingScript.variable} ${crimsonPro.variable} antialiased font-bellefair`}
 			>
 				<Providers>
 					{children}

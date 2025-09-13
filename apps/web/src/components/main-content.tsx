@@ -61,7 +61,7 @@ export default function MainContent() {
 
       <ScrollExpandMedia
         mediaType="video"
-        mediaSrc="https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwjrOczM5uO6qjlMnepHs2rXoJPgubf9tCyZSh"
+        mediaSrc="https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwX9v6dVtysGOqcg2RdxTtQ4ue0vpUihWPEILN"
         posterSrc="https://images.pexels.com/photos/265748/pexels-photo-265748.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         bgImageSrc="https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwS35RaQ9KszXGCKoardWxuyJFchTp9RtekPAB"
         title="Our Wedding Day"

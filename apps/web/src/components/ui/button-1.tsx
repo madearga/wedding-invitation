@@ -56,7 +56,7 @@ const GradientButton = ({
         aria-disabled={disabled}
         {...props}
       >
-        <span className="relative z-10 text-[var(--color-text)] flex items-center justify-center label">
+        <span className="relative z-10 text-white font-bold flex items-center justify-center label">
           {children}
         </span>
       </div>

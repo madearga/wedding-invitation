@@ -10,6 +10,7 @@
   --font-great-vibes: var(--font-great-vibes), "Great Vibes", cursive;
   --font-playfair-display: var(--font-playfair-display), "Playfair Display", serif;
   --font-dancing-script: var(--font-dancing-script), "Dancing Script", cursive;
+  --font-crimson-pro: var(--font-crimson-pro), "Crimson Pro", serif;
 }
 
 html,
@@ -225,16 +226,7 @@ body {
 .rotatingGradient {
   position: relative;
   overflow: hidden; /* clip overlay to radius */
-  background: conic-gradient(
-    from var(--r, 0deg),
-    #ff6b6b 0deg,
-    #4ecdc4 72deg,
-    #45b7d1 144deg,
-    #96ceb4 216deg,
-    #feca57 288deg,
-    #ff6b6b 360deg
-  );
-  animation: rotateGradient 3s linear infinite;
+  background: #000000;
 }
 
 /* Base pseudo-element for hover/active/focus overlay effects */

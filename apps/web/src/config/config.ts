@@ -21,9 +21,9 @@ export const weddingData = {
 // Background music settings
 export const audioConfig = {
   // Music file (choose one or replace with your own file)
-  src: "/audio/fulfilling-humming.mp3", // or /audio/nature-sound.mp3
+  src: "/audio/Sal Priadi - Kita usahakan rumah itu (Official Lyric Video).mp3",
   // Music title to display
-  title: "Fulfilling Humming", // or Nature Sound
+  title: "Kita Usahakan Rumah Itu - Sal Priadi",
   // Whether music plays automatically when website opens
   autoplay: true,
   // Whether music repeats continuously
