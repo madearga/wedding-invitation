@@ -25,23 +25,8 @@ export default function AudioPlayer() {
         setShowToast(true);
         setTimeout(() => setShowToast(false), 3000);
       } catch (error) {
-        console.log('Autoplay failed, waiting for user interaction');
-        // Add click event listener for first interaction
-        const handleFirstInteraction = async () => {
-          try {
-            await audioRef.current!.play();
-            setIsPlaying(true);
-            wasPlayingRef.current = true;
-            setShowToast(true);
-            setTimeout(() => setShowToast(false), 3000);
-
-            document.removeEventListener('click', handleFirstInteraction);
-          } catch (err) {
-            console.error('Playback failed after interaction:', err);
-          }
-        };
-
-        document.addEventListener('click', handleFirstInteraction);
+        console.log('Autoplay failed, user needs to interact with audio button');
+        // Don't add global click listener - let user control audio via the button
       }
     };
 

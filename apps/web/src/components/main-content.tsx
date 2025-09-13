@@ -1,20 +1,17 @@
 "use client";
 
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
-import StickyScrollGallery from '@/components/ui/sticky-scroll';
 import Location from '@/components/ui/location';
 import AnimatedNumberCountdown from '@/components/ui/countdown-number';
 import Wishes from '@/components/ui/wishes';
 import Gifts from '@/components/ui/gifts';
 import { Canvas } from '@react-three/fiber';
 import { ShaderPlane } from '@/components/ui/background-paper-shaders';
+import Link from 'next/link';
 
 export default function MainContent() {
   return (
     <div className="min-h-screen relative">
-      {/* Home Section */}
-      <div id="home"></div>
-
       {/* Animated Background */}
       <div className="fixed inset-0 z-0 opacity-75 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 5] }} style={{ width: '100%', height: '100%' }}>
@@ -56,10 +53,9 @@ export default function MainContent() {
         </Canvas>
       </div>
       
-      {/* Couple Section */}
-      <div id="couple"></div>
-
-      <ScrollExpandMedia
+      {/* Home/Hero Section - Wedding Video */}
+      <section id="home" className="relative z-10">
+        <ScrollExpandMedia
         mediaType="video"
         mediaSrc="https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwX9v6dVtysGOqcg2RdxTtQ4ue0vpUihWPEILN"
         posterSrc="https://images.pexels.com/photos/265748/pexels-photo-265748.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -88,6 +84,7 @@ export default function MainContent() {
               className='w-48 h-48 mx-auto rounded-full object-cover shadow-lg'
             />
           </div>
+          
           <p className='text-lg mb-6'>
             Putri dari Bapak Andreas Anang Wijaya & Ibu Yovita Sandra Ekawati
           </p>
@@ -115,7 +112,7 @@ export default function MainContent() {
           </p>
 
           {/* Details Section */}
-          <div id="details"></div>
+          <div id="details" className="scroll-mt-16"></div>
 
           <div className='bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8'>
             <div className='text-center mb-6'>
@@ -165,10 +162,198 @@ export default function MainContent() {
             </div>
           </div>
         </div>
-      </ScrollExpandMedia>
+        </ScrollExpandMedia>
+      </section>
+
+      {/* Couple Section */}
+      <section id="couple" className="min-h-screen relative z-10 py-16 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4" style={{ color: '#452912' }}>
+              The Couple
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
+              Arga & Agni
+            </p>
+          </div>
+
+          {/* Photo Gallery Layout */}
+          <div className="max-w-7xl mx-auto">
+            
+            {/* Mobile Layout - Magazine style, less overwhelming */}
+            <div className="block lg:hidden space-y-8 px-2">
+              {/* Row 1: Medium portrait left, small square top right */}
+              <div className="flex items-start gap-4">
+                <div className="w-3/5 max-w-48">
+                  <div className="aspect-[3/4] overflow-hidden rounded-xl shadow-md">
+                    <img 
+                      src="/010.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1 max-w-32">
+                  <div className="aspect-square overflow-hidden rounded-lg shadow-md">
+                    <img 
+                      src="/025.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Row 2: Small square bottom right */}
+              <div className="flex justify-end">
+                <div className="w-2/5 max-w-32">
+                  <div className="aspect-square overflow-hidden rounded-lg shadow-md">
+                    <img 
+                      src="/040.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Row 3: Medium landscape center */}
+              <div className="flex justify-center">
+                <div className="w-4/5 max-w-72">
+                  <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md">
+                    <img 
+                      src="/055.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Row 4: Two small squares left and center */}
+              <div className="flex gap-6 justify-start">
+                <div className="w-1/4 max-w-24">
+                  <div className="aspect-square overflow-hidden rounded-lg shadow-md">
+                    <img 
+                      src="/070.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="w-1/4 max-w-24">
+                  <div className="aspect-square overflow-hidden rounded-lg shadow-md">
+                    <img 
+                      src="/075.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden lg:block">
+              <div className="grid grid-cols-3 gap-8">
+                
+                {/* Left Column - Large Photo */}
+                <div className="col-span-1">
+                  <div className="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl">
+                    <img 
+                      src="/010.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+
+                {/* Middle Column - Two Medium Photos */}
+                <div className="col-span-1 space-y-8">
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl">
+                    <img 
+                      src="/025.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl">
+                    <img 
+                      src="/040.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+
+                {/* Right Column - Large Photo */}
+                <div className="col-span-1">
+                  <div className="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl">
+                    <img 
+                      src="/055.jpg" 
+                      alt="Wedding Photo" 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Row - Three Small Photos */}
+              <div className="grid grid-cols-3 gap-8 mt-8">
+                <div className="aspect-square overflow-hidden rounded-2xl shadow-xl">
+                  <img 
+                    src="/070.jpg" 
+                    alt="Wedding Photo" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="aspect-square overflow-hidden rounded-2xl shadow-xl">
+                  <img 
+                    src="/075.jpg" 
+                    alt="Wedding Photo" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="aspect-square overflow-hidden rounded-2xl shadow-xl">
+                  <img 
+                    src="/080.jpg" 
+                    alt="Wedding Photo" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Gallery Button */}
+          <div className="text-center mt-12">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+              style={{ backgroundColor: '#452912' }}
+            >
+              <svg 
+                className="w-5 h-5" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              Lihat Gallery
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Countdown Section */}
-      <div className="min-h-screen flex items-center justify-center relative">
+      <div className="flex items-center justify-center relative py-16">
         <div className="text-center p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto w-full">
           <div className="mb-6 sm:mb-8">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4" style={{ color: '#452912' }}>
@@ -188,10 +373,87 @@ export default function MainContent() {
         </div>
       </div>
 
-      {/* Gallery Section */}
-      <div id="gallery"></div>
+      {/* Photo Story Section */}
+      <section className="relative py-16 sm:py-20 z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            
+            {/* Mobile Layout - Refined and less overwhelming */}
+            <div className="block lg:hidden space-y-6 px-4">
+              {/* Mobile: Photo 1 - Medium portrait, left aligned */}
+              <div className="w-3/5 max-w-xs">
+                <div className="aspect-[3/4] overflow-hidden rounded-xl shadow-md">
+                  <img 
+                    src="/015.jpg" 
+                    alt="Wedding Moment" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
 
-      <StickyScrollGallery />
+              {/* Mobile: Photo 2 - Smaller landscape, center aligned */}
+              <div className="flex justify-center">
+                <div className="w-4/5 max-w-sm">
+                  <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md">
+                    <img 
+                      src="/030.jpg" 
+                      alt="Wedding Moment" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile: Photo 3 - Small portrait, right aligned */}
+              <div className="flex justify-end">
+                <div className="w-1/2 max-w-40">
+                  <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-md">
+                    <img 
+                      src="/045.jpg" 
+                      alt="Wedding Moment" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Layout - Same as mobile but larger */}
+            <div className="hidden lg:block space-y-8">
+              {/* Desktop: Photo 1 - Large top left */}
+              <div className="w-3/5 aspect-[3/4] overflow-hidden rounded-xl shadow-lg">
+                <img 
+                  src="/015.jpg" 
+                  alt="Wedding Moment" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+
+              {/* Desktop: Photo 2 - Medium center-right */}
+              <div className="flex justify-center">
+                <div className="w-4/5 aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+                  <img 
+                    src="/030.jpg" 
+                    alt="Wedding Moment" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+
+              {/* Desktop: Photo 3 - Portrait bottom right */}
+              <div className="flex justify-end">
+                <div className="w-2/5 aspect-[3/4] overflow-hidden rounded-xl shadow-lg">
+                  <img 
+                    src="/045.jpg" 
+                    alt="Wedding Moment" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Location Section */}
       <Location />
