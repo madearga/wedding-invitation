@@ -113,9 +113,7 @@ const ScrollExpandMedia = ({
     };
 
     const handleScroll = (): void => {
-      if (!mediaFullyExpanded) {
-        window.scrollTo(0, 0);
-      }
+      // Allow normal scrolling - dock should be immediately accessible
     };
 
     window.addEventListener('wheel', handleWheel as unknown as EventListener, {
