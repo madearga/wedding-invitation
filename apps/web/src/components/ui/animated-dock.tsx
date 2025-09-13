@@ -39,7 +39,7 @@ export const AnimatedDock = ({ className, items = [] }: AnimatedDockProps) => {
       )}
     >
       {items.map((item, index) => (
-        <DockItem key={index} mouseX={mouseX} onClick={item.onClick}>
+        <DockItem key={`dock-item-${index}`} mouseX={mouseX} onClick={item.onClick}>
           <div className="grow flex items-center justify-center w-full h-full text-gray-700">
             {item.Icon}
           </div>
@@ -58,8 +58,27 @@ interface DockItemProps {
 export const DockItem = ({ mouseX, children, onClick }: DockItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
+  const [bounds, setBounds] = React.useState({ x: 0, width: 0 });
+
+  React.useEffect(() => {
+    const updateBounds = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setBounds({ x: rect.x, width: rect.width });
+      }
+    };
+
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    window.addEventListener('scroll', updateBounds);
+
+    return () => {
+      window.removeEventListener('resize', updateBounds);
+      window.removeEventListener('scroll', updateBounds);
+    };
+  }, []);
+
   const distance = useTransform(mouseX, (val) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
 

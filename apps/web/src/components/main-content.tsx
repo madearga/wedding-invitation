@@ -8,6 +8,7 @@ import Gifts from '@/components/ui/gifts';
 import { Canvas } from '@react-three/fiber';
 import { ShaderPlane } from '@/components/ui/background-paper-shaders';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function MainContent() {
   return (
@@ -78,9 +79,11 @@ export default function MainContent() {
             ANDREA MARIA AGNIWIJAYA
           </h2>
           <div className='mb-4'>
-            <img
+            <Image
               src='https://rvmyspork8.ufs.sh/f/2HgZCCFydUxw2VAaIdFydUxw8Gfas7jErZH9ePpQJkC30LvB'
               alt='Andrea Maria Agniwijaya'
+              width={192}
+              height={192}
               className='w-48 h-48 mx-auto rounded-full object-cover shadow-lg'
             />
           </div>
@@ -97,9 +100,11 @@ export default function MainContent() {
             I MADE ARGA SWARSA
           </h2>
           <div className='mb-4'>
-            <img
+            <Image
               src='https://rvmyspork8.ufs.sh/f/2HgZCCFydUxwQ5VFIHN1hPlkexZ9IT2J3Bnbmd0DRazWMsAK'
               alt='I Made Arga Swarsa'
+              width={192}
+              height={192}
               className='w-48 h-48 mx-auto rounded-full object-cover shadow-lg'
             />
           </div>
@@ -186,20 +191,22 @@ export default function MainContent() {
               {/* Row 1: Medium portrait left, small square top right */}
               <div className="flex items-start gap-4">
                 <div className="w-3/5 max-w-48">
-                  <div className="aspect-[3/4] overflow-hidden rounded-xl shadow-md">
-                    <img 
+                  <div className="aspect-[3/4] overflow-hidden rounded-xl shadow-md relative">
+                    <Image 
                       src="/010.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover"
+                      alt="Bride and groom sharing intimate moment" 
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
                 <div className="flex-1 max-w-32">
-                  <div className="aspect-square overflow-hidden rounded-lg shadow-md">
-                    <img 
+                  <div className="aspect-square overflow-hidden rounded-lg shadow-md relative">
+                    <Image 
                       src="/025.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover"
+                      alt="Couple's romantic engagement portrait" 
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -208,11 +215,12 @@ export default function MainContent() {
               {/* Row 2: Small square bottom right */}
               <div className="flex justify-end">
                 <div className="w-2/5 max-w-32">
-                  <div className="aspect-square overflow-hidden rounded-lg shadow-md">
-                    <img 
+                  <div className="aspect-square overflow-hidden rounded-lg shadow-md relative">
+                    <Image 
                       src="/040.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover"
+                      alt="Wedding ceremony exchange of vows" 
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -221,11 +229,12 @@ export default function MainContent() {
               {/* Row 3: Medium landscape center */}
               <div className="flex justify-center">
                 <div className="w-4/5 max-w-72">
-                  <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md">
-                    <img 
+                  <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md relative">
+                    <Image 
                       src="/055.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover"
+                      alt="Couple's first dance celebration" 
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -234,20 +243,22 @@ export default function MainContent() {
               {/* Row 4: Two small squares left and center */}
               <div className="flex gap-6 justify-start">
                 <div className="w-1/4 max-w-24">
-                  <div className="aspect-square overflow-hidden rounded-lg shadow-md">
-                    <img 
+                  <div className="aspect-square overflow-hidden rounded-lg shadow-md relative">
+                    <Image 
                       src="/070.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover"
+                      alt="Wedding reception family gathering" 
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
                 <div className="w-1/4 max-w-24">
-                  <div className="aspect-square overflow-hidden rounded-lg shadow-md">
-                    <img 
+                  <div className="aspect-square overflow-hidden rounded-lg shadow-md relative">
+                    <Image 
                       src="/075.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover"
+                      alt="Bride's elegant wedding dress detail" 
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -260,40 +271,44 @@ export default function MainContent() {
                 
                 {/* Left Column - Large Photo */}
                 <div className="col-span-1">
-                  <div className="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl">
-                    <img 
+                  <div className="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl relative">
+                    <Image 
                       src="/010.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      alt="Bride and groom sharing intimate moment" 
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </div>
 
                 {/* Middle Column - Two Medium Photos */}
                 <div className="col-span-1 space-y-8">
-                  <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl">
-                    <img 
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl relative">
+                    <Image 
                       src="/025.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      alt="Couple's romantic engagement portrait" 
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
-                  <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl">
-                    <img 
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl relative">
+                    <Image 
                       src="/040.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      alt="Wedding ceremony exchange of vows" 
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </div>
 
                 {/* Right Column - Large Photo */}
                 <div className="col-span-1">
-                  <div className="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl">
-                    <img 
+                  <div className="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl relative">
+                    <Image 
                       src="/055.jpg" 
-                      alt="Wedding Photo" 
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      alt="Couple's first dance celebration" 
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </div>
@@ -301,25 +316,28 @@ export default function MainContent() {
 
               {/* Bottom Row - Three Small Photos */}
               <div className="grid grid-cols-3 gap-8 mt-8">
-                <div className="aspect-square overflow-hidden rounded-2xl shadow-xl">
-                  <img 
+                <div className="aspect-square overflow-hidden rounded-2xl shadow-xl relative">
+                  <Image 
                     src="/070.jpg" 
-                    alt="Wedding Photo" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    alt="Wedding reception family gathering" 
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="aspect-square overflow-hidden rounded-2xl shadow-xl">
-                  <img 
+                <div className="aspect-square overflow-hidden rounded-2xl shadow-xl relative">
+                  <Image 
                     src="/075.jpg" 
-                    alt="Wedding Photo" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    alt="Bride's elegant wedding dress detail" 
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="aspect-square overflow-hidden rounded-2xl shadow-xl">
-                  <img 
+                <div className="aspect-square overflow-hidden rounded-2xl shadow-xl relative">
+                  <Image 
                     src="/080.jpg" 
-                    alt="Wedding Photo" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    alt="Wedding cake cutting ceremony" 
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>
@@ -382,11 +400,12 @@ export default function MainContent() {
             <div className="block lg:hidden space-y-6 px-4">
               {/* Mobile: Photo 1 - Medium portrait, left aligned */}
               <div className="w-3/5 max-w-xs">
-                <div className="aspect-[3/4] overflow-hidden rounded-xl shadow-md">
-                  <img 
+                <div className="aspect-[3/4] overflow-hidden rounded-xl shadow-md relative">
+                  <Image 
                     src="/015.jpg" 
-                    alt="Wedding Moment" 
-                    className="w-full h-full object-cover"
+                    alt="Bride's beautiful wedding bouquet" 
+                    fill
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -394,11 +413,12 @@ export default function MainContent() {
               {/* Mobile: Photo 2 - Smaller landscape, center aligned */}
               <div className="flex justify-center">
                 <div className="w-4/5 max-w-sm">
-                  <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md">
-                    <img 
+                  <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md relative">
+                    <Image 
                       src="/030.jpg" 
-                      alt="Wedding Moment" 
-                      className="w-full h-full object-cover"
+                      alt="Wedding ceremony at cathedral altar" 
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -407,11 +427,12 @@ export default function MainContent() {
               {/* Mobile: Photo 3 - Small portrait, right aligned */}
               <div className="flex justify-end">
                 <div className="w-1/2 max-w-40">
-                  <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-md">
-                    <img 
+                  <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-md relative">
+                    <Image 
                       src="/045.jpg" 
-                      alt="Wedding Moment" 
-                      className="w-full h-full object-cover"
+                      alt="Groom's emotional wedding speech" 
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -421,32 +442,35 @@ export default function MainContent() {
             {/* Desktop Layout - Same as mobile but larger */}
             <div className="hidden lg:block space-y-8">
               {/* Desktop: Photo 1 - Large top left */}
-              <div className="w-3/5 aspect-[3/4] overflow-hidden rounded-xl shadow-lg">
-                <img 
+              <div className="w-3/5 aspect-[3/4] overflow-hidden rounded-xl shadow-lg relative">
+                <Image 
                   src="/015.jpg" 
-                  alt="Wedding Moment" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  alt="Bride's beautiful wedding bouquet" 
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
 
               {/* Desktop: Photo 2 - Medium center-right */}
               <div className="flex justify-center">
-                <div className="w-4/5 aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
-                  <img 
+                <div className="w-4/5 aspect-[16/9] overflow-hidden rounded-xl shadow-lg relative">
+                  <Image 
                     src="/030.jpg" 
-                    alt="Wedding Moment" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    alt="Wedding ceremony at cathedral altar" 
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>
 
               {/* Desktop: Photo 3 - Portrait bottom right */}
               <div className="flex justify-end">
-                <div className="w-2/5 aspect-[3/4] overflow-hidden rounded-xl shadow-lg">
-                  <img 
+                <div className="w-2/5 aspect-[3/4] overflow-hidden rounded-xl shadow-lg relative">
+                  <Image 
                     src="/045.jpg" 
-                    alt="Wedding Moment" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    alt="Groom's emotional wedding speech" 
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>

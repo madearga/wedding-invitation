@@ -12,15 +12,39 @@ interface WeddingPhoto {
     index: number;
 }
 
-// Generate wedding photos dynamically from 001.jpg to 082.jpg
+// Mulberry32 seeded PRNG for deterministic random generation
+class SeededRandom {
+    private state: number;
+    
+    constructor(seed: number) {
+        this.state = seed;
+    }
+    
+    // Mulberry32 algorithm for fast, high-quality random numbers
+    next(): number {
+        this.state |= 0;
+        this.state = (this.state + 0x6D2B79F5) | 0;
+        let t = Math.imul(this.state ^ (this.state >>> 15), 1 | this.state);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    }
+    
+    // Generate random integer between 0 and max (exclusive)
+    nextInt(max: number): number {
+        return Math.floor(this.next() * max);
+    }
+}
+
+// Generate wedding photos with deterministic aspect ratios
 const generateWeddingPhotos = (): WeddingPhoto[][] => {
     const photos: WeddingPhoto[] = [];
     const ratios = [3/4, 4/3, 16/9]; // Portrait, landscape, wide
+    const seededRandom = new SeededRandom(12345); // Fixed seed for consistent results
     
-    // Generate all photos from 001 to 082
+    // Generate all photos from 001 to 082 with deterministic ratios
     for (let i = 1; i <= 82; i++) {
         const paddedNumber = i.toString().padStart(3, '0');
-        const randomRatio = ratios[Math.floor(Math.random() * ratios.length)];
+        const randomRatio = ratios[seededRandom.nextInt(ratios.length)];
         photos.push({ 
             src: `/${paddedNumber}.jpg`, 
             ratio: randomRatio,
@@ -37,7 +61,57 @@ const generateWeddingPhotos = (): WeddingPhoto[][] => {
     return columns;
 };
 
+// Memoize wedding photos at module level to prevent regeneration
+// This ensures consistent layout between renders and during hydration
 const weddingPhotos = generateWeddingPhotos();
+
+interface AnimatedImageProps {
+    alt: string;
+    src: string;
+    className?: string;
+    placeholder?: string;
+    ratio: number;
+}
+
+function AnimatedImage({ alt, src, ratio, placeholder }: AnimatedImageProps) {
+    const ref = React.useRef(null);
+    const isInView = useInView(ref, { once: true });
+    const [isLoading, setIsLoading] = React.useState(true);
+    const [imgSrc, setImgSrc] = React.useState(src);
+    const [hasError, setHasError] = React.useState(false);
+
+    const handleError = () => {
+        if (placeholder) {
+            setImgSrc(placeholder);
+        } else {
+            setHasError(true);
+        }
+    };
+
+    if (hasError) return null;
+
+    return (
+        <AspectRatio
+            ref={ref}
+            ratio={ratio}
+            className="bg-accent relative size-full rounded-lg border"
+        >
+            <img
+                alt={alt}
+                src={imgSrc}
+                className={cn(
+                    'size-full rounded-lg object-cover opacity-0 transition-all duration-1000 ease-in-out',
+                    {
+                        'opacity-100': isInView && !isLoading,
+                    },
+                )}
+                onLoad={() => setIsLoading(false)}
+                loading="lazy"
+                onError={handleError}
+            />
+        </AspectRatio>
+    );
+}
 
 export function ImageGallery() {
     return (
@@ -68,49 +142,5 @@ export function ImageGallery() {
                 ))}
             </div>
         </div>
-    );
-}
-
-interface AnimatedImageProps {
-    alt: string;
-    src: string;
-    className?: string;
-    placeholder?: string;
-    ratio: number;
-}
-
-function AnimatedImage({ alt, src, ratio, placeholder }: AnimatedImageProps) {
-    const ref = React.useRef(null);
-    const isInView = useInView(ref, { once: true });
-    const [isLoading, setIsLoading] = React.useState(true);
-
-    const [imgSrc, setImgSrc] = React.useState(src);
-
-    const handleError = () => {
-        if (placeholder) {
-            setImgSrc(placeholder);
-        }
-    };
-
-    return (
-        <AspectRatio
-            ref={ref}
-            ratio={ratio}
-            className="bg-accent relative size-full rounded-lg border"
-        >
-            <img
-                alt={alt}
-                src={imgSrc}
-                className={cn(
-                    'size-full rounded-lg object-cover opacity-0 transition-all duration-1000 ease-in-out',
-                    {
-                        'opacity-100': isInView && !isLoading,
-                    },
-                )}
-                onLoad={() => setIsLoading(false)}
-                loading="lazy"
-                onError={handleError}
-            />
-        </AspectRatio>
     );
 }

@@ -122,6 +122,14 @@ export default function RootLayout({
 					as="image"
 				/>
 				
+				{/* Preload wedding audio */}
+				<link
+					rel="preload"
+					href="/audio/Sal Priadi - Kita usahakan rumah itu (Official Lyric Video).mp3"
+					as="audio"
+					type="audio/mpeg"
+				/>
+				
 				{/* Preconnect to external domains */}
 				<link rel="preconnect" href="https://rvmyspork8.ufs.sh" />
 				<link rel="preconnect" href="https://images.pexels.com" />
