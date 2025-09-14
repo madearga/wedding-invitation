@@ -28,25 +28,17 @@ const WhatsAppContact = () => {
   };
 
   return (
-    <section id="contact" className="min-h-screen relative z-10 py-16 sm:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-4 py-12 sm:py-16 lg:py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
           <div className="mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ color: '#452912' }}>
               Hubungi Kami
             </h2>
-            <div className="text-base sm:text-lg text-gray-600 mb-8">
-              <p className="italic leading-relaxed" style={{ color: '#452912' }}>
-                "Sebagai tanda kasih dan doa yang tulus,<br/>
-                Dalam perjalanan cinta kami yang baru dimulai,<br/>
-                Setiap kata yang Anda tulis akan menjadi berkat,<br/>
-                Menyemarakkan hari bahagia kami selamanya."
-              </p>
-              <p className="mt-4">
-                Jika ingin menghubungi kami lebih lanjut, bisa melalui nomor:
-              </p>
-            </div>
+            <p className="text-base sm:text-lg text-gray-600 mb-8">
+              Jika ingin menghubungi kami lebih lanjut, bisa melalui nomor:
+            </p>
           </div>
 
           {/* Contact Cards */}

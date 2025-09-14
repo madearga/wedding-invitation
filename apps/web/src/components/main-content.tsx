@@ -121,11 +121,11 @@ export default function MainContent() {
 
           <div className='bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8'>
             <div className='text-center mb-6'>
-              <h1 className='text-6xl font-bold mb-2' style={{color: '#452912'}}>17</h1>
               <h2 className='text-2xl font-semibold mb-2' style={{color: '#452912'}}>JUMAT</h2>
+              <h1 className='text-6xl font-bold mb-2' style={{color: '#452912'}}>17</h1>
               <h2 className='text-2xl font-semibold mb-2' style={{color: '#452912'}}>OKTOBER</h2>
-              <h2 className='text-xl font-bold mb-2' style={{color: '#452912'}}>09.00 WIB</h2>
-              <h2 className='text-2xl font-semibold' style={{color: '#452912'}}>2025</h2>
+              <h2 className='text-2xl font-semibold mb-2' style={{color: '#452912'}}>2025</h2>
+              <h2 className='text-xl font-bold' style={{color: '#452912'}}>09.00 WIB</h2>
             </div>
             
             <div className='text-center'>

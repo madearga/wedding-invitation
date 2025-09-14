@@ -192,7 +192,7 @@ export default function Wishes() {
   };
 
   return (
-    <section id="wishes" className="min-h-screen relative overflow-hidden py-12 sm:py-16 lg:py-20">
+    <section id="wishes" className="min-h-screen relative overflow-hidden py-8 sm:py-12 lg:py-16">
       {showConfetti && (
         <Confetti
           recycle={false}
@@ -214,9 +214,14 @@ export default function Wishes() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4" style={{ color: '#452912' }}>
             Kirim Harapan
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
-            Bagikan harapan dan doa terbaik untuk pernikahan kami
-          </p>
+          <div className="text-base sm:text-lg max-w-2xl mx-auto px-2">
+            <p className="italic leading-relaxed text-gray-700">
+              "Sebagai tanda kasih dan doa yang tulus,<br/>
+              Dalam perjalanan cinta kami yang baru dimulai,<br/>
+              Setiap kata yang Anda tulis akan menjadi berkat,<br/>
+              Menyemarakkan hari bahagia kami selamanya."
+            </p>
+          </div>
           
           {/* Error Display */}
           {error && (
@@ -246,7 +251,7 @@ export default function Wishes() {
             className="order-2 lg:order-1"
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg border border-gray-100">
-              <form onSubmit={handleSubmitWish} className="space-y-6">
+              <form onSubmit={handleSubmitWish} className="space-y-6 pb-20 sm:pb-24">
                 {/* Name Input */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
