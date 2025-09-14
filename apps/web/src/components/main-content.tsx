@@ -4,7 +4,7 @@ import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
 import Location from '@/components/ui/location';
 import AnimatedNumberCountdown from '@/components/ui/countdown-number';
 import Wishes from '@/components/ui/wishes';
-import Gifts from '@/components/ui/gifts';
+import WhatsAppContact from '@/components/ui/whatsapp-contact';
 import { Canvas } from '@react-three/fiber';
 import { ShaderPlane } from '@/components/ui/background-paper-shaders';
 import Link from 'next/link';
@@ -482,8 +482,8 @@ export default function MainContent() {
       {/* Location Section */}
       <Location />
 
-      {/* Gifts Section */}
-      <Gifts />
+      {/* WhatsApp Contact Section */}
+      <WhatsAppContact />
 
       {/* Wishes Section */}
       <Wishes />

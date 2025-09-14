@@ -1,4 +1,4 @@
-import { Home, Heart, Calendar, Camera, MapPin, Gift, MessageSquareHeart } from 'lucide-react'
+import { Home, Heart, Calendar, Camera, MapPin, MessageSquareHeart, MessageCircle } from 'lucide-react'
 import { AnimatedDock } from "@/components/ui/animated-dock"
 import { useRouter } from 'next/navigation'
 
@@ -57,14 +57,14 @@ const WeddingDockDemo = () => {
             onClick: () => scrollToSection('location')
           },
           {
-            link: "#gifts",
-            Icon: <Gift size={22} />,
-            onClick: () => scrollToSection('gifts')
-          },
-          {
             link: "#wishes",
             Icon: <MessageSquareHeart size={22} />,
             onClick: () => scrollToSection('wishes')
+          },
+          {
+            link: "#contact",
+            Icon: <MessageCircle size={22} />,
+            onClick: () => scrollToSection('contact')
           },
         ]}
       />

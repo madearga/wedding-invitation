@@ -2,15 +2,15 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Home, CalendarHeart, MapPin, Gift, MessageCircleHeart } from 'lucide-react';
+import { Home, CalendarHeart, MapPin, MessageCircleHeart, MessageCircle } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
 const menuItems = [
   { icon: Home, label: 'Beranda', href: '#home', id: 'home' },
   { icon: CalendarHeart, label: 'Event', href: '#event', id: 'event' },
   { icon: MapPin, label: 'Lokasi', href: '#location', id: 'location' },
-  { icon: Gift, label: 'Hadiah', href: '#gifts', id: 'gifts' },
   { icon: MessageCircleHeart, label: 'Harapan', href: '#wishes', id: 'wishes' },
+  { icon: MessageCircle, label: 'Kontak', href: '#contact', id: 'contact' },
 ];
 
 /**
