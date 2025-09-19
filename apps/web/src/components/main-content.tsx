@@ -124,8 +124,8 @@ export default function MainContent() {
               <h2 className='text-2xl font-semibold mb-2' style={{color: '#452912'}}>JUMAT</h2>
               <h1 className='text-6xl font-bold mb-2' style={{color: '#452912'}}>17</h1>
               <h2 className='text-2xl font-semibold mb-2' style={{color: '#452912'}}>OKTOBER</h2>
+              <h2 className='text-xl font-semibold mb-2' style={{color: '#452912'}}>09.30 WIB</h2>
               <h2 className='text-2xl font-semibold mb-2' style={{color: '#452912'}}>2025</h2>
-              <h2 className='text-xl font-bold' style={{color: '#452912'}}>09.00 WIB</h2>
             </div>
             
             <div className='text-center'>
@@ -193,7 +193,7 @@ export default function MainContent() {
                 <div className="w-3/5 max-w-48">
                   <div className="aspect-[3/4] overflow-hidden rounded-xl shadow-md relative">
                     <Image 
-                      src="/010.jpg" 
+                      src="https://rvmyspork8.ufs.sh/f/2HgZCCFydUxw3neP8fdj1lei89QpvGhUPtkm0wqJOxL4CnBK" 
                       alt="Bride and groom sharing intimate moment" 
                       fill
                       className="object-cover"
@@ -217,7 +217,7 @@ export default function MainContent() {
                 <div className="w-2/5 max-w-32">
                   <div className="aspect-square overflow-hidden rounded-lg shadow-md relative">
                     <Image 
-                      src="/040.jpg" 
+                      src="/046.jpg" 
                       alt="Wedding ceremony exchange of vows" 
                       fill
                       className="object-cover"
@@ -273,7 +273,7 @@ export default function MainContent() {
                 <div className="col-span-1">
                   <div className="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl relative">
                     <Image 
-                      src="/010.jpg" 
+                      src="https://rvmyspork8.ufs.sh/f/2HgZCCFydUxw3neP8fdj1lei89QpvGhUPtkm0wqJOxL4CnBK" 
                       alt="Bride and groom sharing intimate moment" 
                       fill
                       className="object-cover hover:scale-105 transition-transform duration-700"
@@ -293,7 +293,7 @@ export default function MainContent() {
                   </div>
                   <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl relative">
                     <Image 
-                      src="/040.jpg" 
+                      src="/046.jpg" 
                       alt="Wedding ceremony exchange of vows" 
                       fill
                       className="object-cover hover:scale-105 transition-transform duration-700"
@@ -334,7 +334,7 @@ export default function MainContent() {
                 </div>
                 <div className="aspect-square overflow-hidden rounded-2xl shadow-xl relative">
                   <Image 
-                    src="/080.jpg" 
+                    src="/082.jpg" 
                     alt="Wedding cake cutting ceremony" 
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-700"
@@ -384,7 +384,7 @@ export default function MainContent() {
           
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg">
             <AnimatedNumberCountdown
-              endDate={new Date("2025-10-17T09:00:00")}
+              endDate={new Date("2025-10-17T09:30:00")}
               className="text-center"
             />
           </div>
@@ -415,7 +415,7 @@ export default function MainContent() {
                 <div className="w-4/5 max-w-sm">
                   <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md relative">
                     <Image 
-                      src="/030.jpg" 
+                      src="/057.jpg" 
                       alt="Wedding ceremony at cathedral altar" 
                       fill
                       className="object-cover"
@@ -429,7 +429,7 @@ export default function MainContent() {
                 <div className="w-1/2 max-w-40">
                   <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-md relative">
                     <Image 
-                      src="/045.jpg" 
+                      src="/010.jpg" 
                       alt="Groom's emotional wedding speech" 
                       fill
                       className="object-cover"
@@ -455,7 +455,7 @@ export default function MainContent() {
               <div className="flex justify-center">
                 <div className="w-4/5 aspect-[16/9] overflow-hidden rounded-xl shadow-lg relative">
                   <Image 
-                    src="/030.jpg" 
+                    src="/057.jpg" 
                     alt="Wedding ceremony at cathedral altar" 
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-700"
@@ -467,7 +467,7 @@ export default function MainContent() {
               <div className="flex justify-end">
                 <div className="w-2/5 aspect-[3/4] overflow-hidden rounded-xl shadow-lg relative">
                   <Image 
-                    src="/045.jpg" 
+                    src="/010.jpg" 
                     alt="Groom's emotional wedding speech" 
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-700"
