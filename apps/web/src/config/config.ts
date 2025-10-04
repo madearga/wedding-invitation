@@ -1,8 +1,8 @@
 // Main wedding data for the invitation
 export const weddingData = {
   // Couple information
-  title: "Arga & Agni Wedding Invitation",
-  description: "Join us in celebrating the wedding of Arga & Agni. Save the date: October 17, 2025 at Gereja Hati Kudus Yesus Katedral Surabaya",
+  title: "Pernikahan Arga & Agni Jumat 17 Oktober 2025",
+  description: "Pernikahan Arga & Agni Jumat 17 Oktober 2025",
   groomName: "I Made Arga Swarsa",
   brideName: "Andrea Maria Agniwijaya",
   groomParents: "Bapak I Wayan Sarmadi & Ibu Indah Yana",
